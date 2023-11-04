@@ -97,7 +97,7 @@ class Catalog {
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Lab3 Andrii Fortus IKM-221a");
+        System.out.println("Lab3 Andrii Fortus IKM-221a var18");
 
         AudioFile customAudioFile = new AudioFile("audio", 400, 270,
                 360, "Eminem");
