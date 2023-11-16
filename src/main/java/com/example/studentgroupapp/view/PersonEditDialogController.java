@@ -97,7 +97,7 @@ public class PersonEditDialogController {
         if(groupCodeField.getText() ==null|| groupCodeField.getText().isEmpty()) {
             errorMessage+="No valid postal code!\n";
         }else{
-// намагаємося перетворити номер групи на int.
+            // намагаємося перетворити номер групи на int.
             try{
                 Integer.parseInt(groupCodeField.getText());
             }catch(NumberFormatException e) {
@@ -114,7 +114,7 @@ public class PersonEditDialogController {
         if(errorMessage.isEmpty()) {
             return true;
         }else{
-// Показуємо повідомлення про помилку.
+            // Показуємо повідомлення про помилку.
             Alert alert=new Alert(AlertType.ERROR);
             alert.initOwner(dialogStage);
             alert.setTitle("Invalid Fields");

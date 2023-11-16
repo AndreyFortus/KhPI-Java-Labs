@@ -48,7 +48,7 @@ public class DateUtil {
      * @returntrue, якщо рядок є коректною датою
      */
     public static boolean validDate(String dateString) {
-// Намагаємось розібрати рядок.
+        // Намагаємось розібрати рядок.
         return DateUtil.parse(dateString) !=null;
     }
 }

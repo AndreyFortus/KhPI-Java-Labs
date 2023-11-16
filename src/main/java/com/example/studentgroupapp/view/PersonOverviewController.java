@@ -40,15 +40,14 @@ public class PersonOverviewController {
      */
     @FXML
     private void initialize() {
-// Ініціалізація таблиці адресатів із двома стовпцями.
+        // Ініціалізація таблиці адресатів із двома стовпцями.
         firstNameColumn.setCellValueFactory(
                 cellData->cellData.getValue().firstNameProperty());
         lastNameColumn.setCellValueFactory(
                 cellData->cellData.getValue().lastNameProperty());
-// Очищення додаткової інформації про студента.
+        // Очищення додаткової інформації про студента.
         showPersonDetails(null);
-// Слухаємо зміни вибору і при зміні відображаємо
-        // додаткову інформацію про студента.
+        // Слухаємо зміни вибору і при зміні відображаємо додаткову інформацію про студента.
 
         personTable.getSelectionModel().selectedItemProperty().addListener(
                 (observable,oldValue,newValue) ->showPersonDetails(newValue));
@@ -62,7 +61,7 @@ public class PersonOverviewController {
      */
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
-// Додавання до таблиці даних із спостережуваного списку
+        // Додавання до таблиці даних із спостережуваного списку
         personTable.setItems(mainApp.getPersonData());
     }
 
@@ -74,14 +73,14 @@ public class PersonOverviewController {
      */
     private void showPersonDetails(Person person) {
         if (person != null) {
-// Заповнюємо позначки інформацією з об'єкта person.
+            // Заповнюємо позначки інформацією з об'єкта person.
             firstNameLabel.setText(person.getFirstName());
             lastNameLabel.setText(person.getLastName());
             groupCodeLabel.setText(String.valueOf(person.getGroupCode()));
             birthdayLabel.setText(DateUtil.format(person.getBirthday()));
             // birthdayLabel.setText(...);
         } else {
-// Якщо Person = null, то забираємо весь текст.
+            // Якщо Person = null, то забираємо весь текст.
             firstNameLabel.setText("");
             lastNameLabel.setText("");
             groupCodeLabel.setText("");
@@ -136,7 +135,7 @@ public class PersonOverviewController {
                 showPersonDetails(selectedPerson);
             }
         }else{
-// Нічого не вибрано.
+            // Нічого не вибрано.
             Alert alert=new Alert(Alert.AlertType.WARNING);
             alert.initOwner(mainApp.getPrimaryStage());
             alert.setTitle("No Selection");
@@ -145,5 +144,4 @@ public class PersonOverviewController {
             alert.showAndWait();
         }
     }
-
 }
