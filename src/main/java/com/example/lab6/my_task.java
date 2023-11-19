@@ -21,6 +21,7 @@ import javafx.stage.Stage;
 
 public class my_task extends Application {
     private final Color originalBackgroundColor = Color.DARKBLUE;
+    private DoubleProperty clearSizeProperty = new SimpleDoubleProperty(10);
 
     public static void main(String[] args) {
         launch(args);
@@ -65,9 +66,25 @@ public class my_task extends Application {
         root.getChildren().addAll(canvas, lightCanvas);
 
 // стирання малюнка
+        primaryStage.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
+            KeyCode keyCode = event.getCode();
+            switch (keyCode) {
+                case DIGIT1 ->clearSizeProperty.set(1);
+                case DIGIT2 -> clearSizeProperty.set(2);
+                case DIGIT3 ->clearSizeProperty.set(3);
+                case DIGIT4 -> clearSizeProperty.set(4);
+                case DIGIT5 ->clearSizeProperty.set(5);
+                case DIGIT6 -> clearSizeProperty.set(6);
+                case DIGIT7 ->clearSizeProperty.set(7);
+                case DIGIT8 -> clearSizeProperty.set(8);
+                case DIGIT9 ->clearSizeProperty.set(9);
+            }
+        });
+
         lightCanvas.addEventHandler(MouseEvent.MOUSE_DRAGGED, e -> {
-            gc.clearRect(e.getX() - 1, e.getY() - 1, 10, 10);
-            lgc.clearRect(e.getX() - 1, e.getY() - 1, 10, 10);
+            double size = Math.abs(clearSizeProperty.get());
+            gc.clearRect(e.getX() - 1, e.getY() - 1, size, size);
+            lgc.clearRect(e.getX() - 1, e.getY() - 1, size, size);
         });
 // повернення малюнка потрійним кліком
         lightCanvas.addEventHandler(MouseEvent.MOUSE_CLICKED, t -> {
