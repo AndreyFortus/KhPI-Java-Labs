@@ -65,7 +65,7 @@ public class my_task extends Application {
 
         root.getChildren().addAll(canvas, lightCanvas);
 
-// стирання малюнка
+// зміна розміру стирання
         primaryStage.addEventHandler(KeyEvent.KEY_PRESSED, event -> {
             KeyCode keyCode = event.getCode();
             switch (keyCode) {
@@ -80,7 +80,7 @@ public class my_task extends Application {
                 case DIGIT9 ->clearSizeProperty.set(9);
             }
         });
-
+// стирання малюнка
         lightCanvas.addEventHandler(MouseEvent.MOUSE_DRAGGED, e -> {
             double size = Math.abs(clearSizeProperty.get());
             gc.clearRect(e.getX() - 1, e.getY() - 1, size, size);
